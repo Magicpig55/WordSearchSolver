@@ -27,39 +27,31 @@ namespace WordSearchSolver {
             Point pn = points.Last();
             switch (dir) {
                 case Direction.North: {
-                        if (p.Y == pn.Y - 1) return true;
-                        break;
+                        return (p.Y == pn.Y - 1 && p.X == pn.X);
                     }
                 case Direction.South: {
-                        if (p.Y == pn.Y + 1) return true;
-                        break;
+                        return (p.Y == pn.Y + 1 && p.X == pn.X);
                     }
                 case Direction.East: {
-                        if (p.X == pn.X + 1) return true;
-                        break;
+                        return (p.X == pn.X + 1 && p.Y == pn.Y);
                     }
                 case Direction.West: {
-                        if (p.X == pn.X - 1) return true;
-                        break;
+                        return (p.X == pn.X - 1 && p.Y == pn.Y);
                     }
                 case Direction.North_East: {
-                        if (p.Y == pn.Y - 1 && p.X == pn.X + 1) return true;
-                        break;
+                        return (p.Y == pn.Y - 1 && p.X == pn.X + 1);
                     }
                 case Direction.North_West: {
-                        if (p.Y == pn.Y - 1 && p.X == pn.X - 1) return true;
-                        break;
+                        return (p.Y == pn.Y - 1 && p.X == pn.X - 1);
                     }
                 case Direction.South_East: {
-                        if (p.Y == pn.Y + 1 && p.X == pn.X + 1) return true;
-                        break;
+                        return (p.Y == pn.Y + 1 && p.X == pn.X + 1);
                     }
                 case Direction.South_West: {
-                        if (p.Y == pn.Y + 1 && p.X == pn.X - 1) return true;
-                        break;
+                        return (p.Y == pn.Y + 1 && p.X == pn.X - 1);
                     }
                 case Direction.None: {
-                        return true;
+                        return Math.Abs(p.X - pn.X) == 1 || Math.Abs(p.Y - pn.Y) == 1;
                     }
             }
             return false;
@@ -70,13 +62,13 @@ namespace WordSearchSolver {
             else {
                 Point pn = points.Last();
                 bool f = true;
-                if (p.Y == pn.Y - 1) dir = Direction.North;
+                if (p.Y == pn.Y - 1 && p.X == pn.X) dir = Direction.North;
                 else
-                if (p.Y == pn.Y + 1) dir = Direction.South;
+                if (p.Y == pn.Y + 1 && p.X == pn.X) dir = Direction.South;
                 else
-                if (p.X == pn.X + 1) dir = Direction.East;
+                if (p.X == pn.X + 1 && p.Y == pn.Y) dir = Direction.East;
                 else
-                if (p.X == pn.X - 1) dir = Direction.West;
+                if (p.X == pn.X - 1 && p.Y == pn.Y) dir = Direction.West;
                 else
                 if (p.Y == pn.Y - 1 && p.X == pn.X + 1) dir = Direction.North_East;
                 else
