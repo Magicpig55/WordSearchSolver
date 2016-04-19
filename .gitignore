@@ -17,5 +17,6 @@ ExportedObj/
 *.svd
 
 # Etc
-obj/Debug
-bin/Debug
+WordSearchSolver/obj/Debug
+WordSearchSolver/bin/Debug
+.vs
